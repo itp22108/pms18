@@ -1,0 +1,25 @@
+---
+- name: Install InfluxDB on Darwin
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Download InfluxDB archive
+      get_url:
+        url: https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-darwin-amd64.tar.gz
+        dest: /tmp/influxdb2-2.7.0-darwin-amd64.tar.gz
+
+    - name: Extract InfluxDB archive
+      unarchive:
+        src: /tmp/influxdb2-2.7.0-darwin-amd64.tar.gz
+        dest: /tmp/
+        remote_src: true
+
+    - name: Copy InfluxDB binary to /usr/local/bin/
+      copy:
+        src: /tmp/influxdb2-2.7.0-darwin-amd64/influxd
+        dest: /usr/local/bin/
+        mode: 0755
+
+    - name: Start InfluxDB service
+      command: influxd
