@@ -1,0 +1,47 @@
+---
+- name: Install Docker, Telegraf & Containers
+  hosts: dockerserver
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Install Docker prerequisites
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        state: present
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+
+    - name: Setup Grafana Container
+      include_playbook: grafana_container.yml
+
+    - name: Setup InfluxDB Container
+      include_playbook: influxdb_container.yml
+
+    - name: Setup Owncloud Container
+      include_playbook: owncloud_container.yml
+
+    - name: Install Telegraf
+      include_playbook: telegraf_service.yml
