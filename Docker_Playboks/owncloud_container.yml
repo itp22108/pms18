@@ -1,0 +1,24 @@
+- name: Setup OwnCloud Container
+  hosts: dockerserver
+  gather_facts: false
+  
+  tasks:
+    - name: Pull OwnCloud Docker image
+      docker_image:
+        name: owncloud:latest
+
+    - name: Create OwnCloud container
+      docker_container:
+        name: "owncloud"
+        image: owncloud:latest
+        ports:
+          - "8080:8080"
+        volumes:
+          - "/:/var/www/html/data"
+        environment:
+          - OWNCLOUD_DOMAIN=dockerserver
+          - OWNCLOUD_DB_TYPE=mysql
+          - OWNCLOUD_DB_NAME=ownclouddb
+          - OWNCLOUD_DB_USERNAME=owncloud
+          - OWNCLOUD_DB_PASSWORD=owncloud
+        restart_policy: unless-stopped
