@@ -14,7 +14,8 @@
         ports:
           - "8080:8080"
         volumes:
-          - "/:/var/www/html/data"
+          - "/owncloud:/var/www/html/data"
+          
         environment:
           - OWNCLOUD_DOMAIN=dockerserver
           - OWNCLOUD_DB_TYPE=mysql
