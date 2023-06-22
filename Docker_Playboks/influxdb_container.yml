@@ -1,3 +1,9 @@
+---
+- name: Setup a Grafana Container
+  hosts: dockerserver
+  gather_facts: false
+  become: true
+
 - name: Install InfluxDB container
   docker_container:
     name: influxdb
