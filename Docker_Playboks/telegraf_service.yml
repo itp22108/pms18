@@ -1,0 +1,17 @@
+- name: Install Telegraf Service
+  apt:
+    name: telegraf
+    state: present
+
+- name: Copy Telegraf configuration file
+  template:
+    src: telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+    owner: telegraf
+    group: telegraf
+    mode: "0644"
+
+- name: Restart Telegraf service
+  systemd:
+    name: telegraf
+    state: restarted
