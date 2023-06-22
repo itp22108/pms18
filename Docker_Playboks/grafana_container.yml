@@ -1,0 +1,9 @@
+- name: Install Grafana container
+  docker_container:
+    name: grafana
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - "/path/to/grafana/data:/var/lib/grafana"
+    restart_policy: unless-stopped
