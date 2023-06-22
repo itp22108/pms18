@@ -35,13 +35,13 @@
         state: started
 
     - name: Setup Grafana Container
-      include_playbook: grafana_container.yml
+      include_tasks: grafana_container.yml
 
     - name: Setup InfluxDB Container
-      include_playbook: influxdb_container.yml
+      include_tasks: influxdb_container.yml
 
     - name: Setup Owncloud Container
-      include_playbook: owncloud_container.yml
+      include_tasks: owncloud_container.yml
 
     - name: Install Telegraf
-      include_playbook: telegraf_service.yml
+      include_tasks: telegraf_service.yml
