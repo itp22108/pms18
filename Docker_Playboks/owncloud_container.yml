@@ -14,7 +14,7 @@
         ports:
           - "8080:8080"
         volumes:
-          - "/owncloud:/var/www/html/data"
+          - "/home/srvuser:/var/www/html/data"
           
         environment:
           - OWNCLOUD_DOMAIN=dockerserver
