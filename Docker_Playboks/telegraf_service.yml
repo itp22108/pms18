@@ -1,3 +1,4 @@
+---
 - name: Install Telegraf on Ubuntu
   hosts: all
   become: true
