@@ -5,5 +5,5 @@
     ports:
       - "3000:3000"
     volumes:
-      - "/path/to/grafana/data:/var/lib/grafana"
+      - "/home/srvuser:/var/lib/grafana"
     restart_policy: unless-stopped
