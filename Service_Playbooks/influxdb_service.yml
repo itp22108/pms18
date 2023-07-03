@@ -7,20 +7,12 @@
       apt:
         update_cache: yes
 
-    - name: Download InfluxData archive key
-      shell: wget -q https://repos.influxdata.com/influxdata-archive_compat.key
-
-    - name: Verify InfluxData archive key
-      shell: echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c
-      register: key_verification
-      changed_when: false
-
-    - name: Import InfluxData archive key
-      shell: cat influxdata-archive_compat.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null
-      when: key_verification.stdout == "influxdata-archive_compat.key: OK\n"
-
     - name: Add InfluxData repository
       shell: echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
 
     - name: Install InfluxDB 2
       apt:
