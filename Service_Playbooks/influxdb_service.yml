@@ -1,6 +1,6 @@
 ---
 - name: Configure InfluxDB
-  hosts: all
+  hosts: appserver
   become: true
   tasks:
     - name: Update apt cache
