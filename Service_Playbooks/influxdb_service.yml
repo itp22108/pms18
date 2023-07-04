@@ -17,21 +17,3 @@
       service:
         name: influxdb
         state: started
-    
-    - name: Run influx setup
-      command: influx setup
-      args:
-        creates: ~/.influxdbv2/configs
-      become_user: influxdb
-      expect:
-        command: influx setup
-        responses:
-          'Do you want to skip Welcome Wizard? (y/n)': 'y\n'
-          'Do you want to configure a default InfluxDB host? (y/n)': 'y\n'
-          'Default InfluxDB host [http://localhost:8086]:': 'http://localhost:8086\n'
-          'Do you want to set up an initial username and password now? (y/n)': 'y\n'
-          'Please type your primary username:': 'chris\n'
-          'Please type your password:': 'pms18project\n'
-          'Please type your password again:': 'pms18project\n'
-          'Please type your organization name:': 'dit.hua\n'
-          'Please type your bucket name:': 'PMS18\n'
