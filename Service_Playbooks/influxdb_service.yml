@@ -1,6 +1,6 @@
 ---
-- name: Install InfluxDB 2.x
-  hosts: your_host_group
+- name: Install InfluxDB 2.7.0
+  hosts: appserver
   become: true
 
   tasks:
