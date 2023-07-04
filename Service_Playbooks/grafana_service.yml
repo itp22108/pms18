@@ -1,6 +1,6 @@
 ---
 - name: Install Grafana as a Service
-  hosts: all
+  hosts: appserver
   become: true
 
   tasks:
