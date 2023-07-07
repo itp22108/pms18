@@ -5,4 +5,7 @@
 
   tasks:
     - name: Run InfluxDB Docker container
-      command: docker run -d --name=influxdb -p 8086:8086 -v influxvolume:/var/lib/influxdb2 influxdb:latest
+      command: docker run -d --name=influxdb2 -p 8086:8086 -v influxvolume:/var/lib/influxdb2 influxdb:latest
+
+    - name: Setup InfluxDB
+      command: docker exec influxdb2 influx setup --username admin --password pms18project --org hua --bucket pms18 --force
