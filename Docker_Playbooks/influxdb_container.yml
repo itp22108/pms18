@@ -1,9 +1,8 @@
-- name: Install InfluxDB container
-  docker_container:
-    name: influxdb
-    image: influxdb:2.0
-    ports:
-      - "8086:8086"
-    volumes:
-      - "/home/srvuser:/var/lib/influxdb2"
-    restart_policy: unless-stopped
+---
+- name: Pull InfluxDB container
+  hosts: dockerserver
+  become: true
+
+  tasks:
+    - name: Run InfluxDB Docker container
+      command: docker run -d --name=influxdb -p 8086:8086 -v influxvolume:/var/lib/influxdb2 influxdb:latest
