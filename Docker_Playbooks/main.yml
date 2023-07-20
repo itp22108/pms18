@@ -4,10 +4,9 @@
   gather_facts: false
   become: true
 
-  tasks:
-  
+  tasks:  
     - name: Install Docker
-      include_tasks: docker.yml
+      include_tasks: components/docker.yml
       
     - name: Install Telegraf
-      include_tasks: telegraf.yml
+      include_tasks: components/telegraf.yml
