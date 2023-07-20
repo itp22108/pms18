@@ -37,4 +37,4 @@
             msg: "Failed to install Docker"
 
     - name: Install Telegraf
-      include_tasks: components/telegraf_service.yml
+      include_tasks: telegraf.yml
