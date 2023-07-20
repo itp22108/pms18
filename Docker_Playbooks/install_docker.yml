@@ -1,7 +1,3 @@
----
-- hosts: dockerserver
-  become: true
-
  - name: Install required system packages
       apt:
         pkg:
