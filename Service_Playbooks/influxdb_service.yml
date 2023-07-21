@@ -7,11 +7,11 @@
     - name: Download InfluxDB package
       get_url:
         url: https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb
-        dest: /tmp/influxdb2-2.7.0-amd64.deb
+        dest: /home/chris/influxdb2-2.7.0-amd64.deb
 
     - name: Install InfluxDB package
       apt:
-        deb: /tmp/influxdb2-2.7.0-amd64.deb
+        deb: /home/chris/influxdb2-2.7.0-amd64.deb
 
     - name: Start InfluxDB service
       service:
