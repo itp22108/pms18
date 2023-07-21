@@ -1,2 +1,2 @@
-- name: Run Grafana Docker container
+- name: TASK: Pulling Grafana
   command: docker run -d --name=grafana --restart=always -p 3000:3000 grafana/grafana
