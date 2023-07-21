@@ -1,0 +1,2 @@
+- name: Pull Owncloud Server Container
+  command: docker run -d --name=owncloud_server -p 8080:8080 --restart=always owncloud/server
