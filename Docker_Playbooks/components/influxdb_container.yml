@@ -1,4 +1,4 @@
-- name: TASK: Pulling InfluxDB 1.8
+- name: TASK - Pulling InfluxDB 1.8
       #command: docker run -d --name=influxdb2 --restart=always -p 8086:8086 -v influxvolume:/var/lib/influxdb2 influxdb:latest
   command: docker run -d --name=influxdb --restart=always -p 8086:8086 -v influxdb:/var/lib/influxdb influxdb:1.8
       
