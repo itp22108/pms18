@@ -1,2 +1,0 @@
-- name: TASK: Pulling Owncloud Server
-  command: docker run -d --name=owncloud_server -p 8080:8080 --restart=always owncloud/server

@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  owncloud:
+    image: owncloud/server:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/var/www/html
+    environment:
+      - OWNCLOUD_TRUSTED_DOMAINS=10.10.1.61:8080
+      - OWNCLOUD_ADMIN_USERNAME=itp22108
+      - OWNCLOUD_ADMIN_PASSWORD=pms18project
+
+  db:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=5428
+      - MYSQL_DATABASE=owncloud
+      - MYSQL_USER=owncloud
+      - MYSQL_PASSWORD=pms18project
+    volumes:
+      - ./db_data:/var/lib/mysql
