@@ -50,12 +50,12 @@ sudo dd of=/etc/telegraf/telegraf.conf << CONF
 [[inputs.exec]]
    commands = [ "top -b -n 1",]
    timeout = "5s"
-   name_suffix = "top_cmd"
+   name_override = "top_cmd"
    data_format = "influx"
 [[inputs.exec]]
     commands = [ "docker stats --no-stream",]
    timeout = "5s"
-   name_suffix = "docker-stats"
+   name_override = "docker-stats"
    data_format = "influx"
 CONF
 
