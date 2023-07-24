@@ -18,7 +18,7 @@
     - name: InfluxDB 1.8 Container
       include_tasks: components/influxdb_container.yml
     
-    - name: Send Owncloud Compose file to target machine
+    - name: OwnCloud Container
        copy:
          src: /path/to/my_compose.yml
          dest: target/dest/dir
