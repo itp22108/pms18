@@ -8,5 +8,25 @@
     - name: Install Docker
       include_tasks: components/docker.yml
       
-    - name: Install Telegraf
+    - name: Telegraf
       include_tasks: components/telegraf.yml
+      #Won't run...
+
+    - name: Grafana Container
+      include_tasks: components/grafana_container.yml
+
+    - name: InfluxDB 1.8 Container
+      include_tasks: components/influxdb_container.yml
+    
+    - name: Send Owncloud Compose file to target machine
+       copy:
+         src: /path/to/my_compose.yml
+         dest: target/dest/dir
+
+     - name: Compose OwnCloud
+       command: docker-compose -f target/dest/dir/my_compose.yml up -d
+
+
+
+
+      
