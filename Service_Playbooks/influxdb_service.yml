@@ -4,7 +4,7 @@
   become: yes
 
   tasks:
-    - name: Download InfluxDB package
+    - name: Download InfluxDB 1.8 package
       get_url:
         url: https://dl.influxdata.com/influxdb/releases/influxdb_1.8.10_amd64.deb
         dest: /home/chris/influxdb_1.8.10_amd64.deb
