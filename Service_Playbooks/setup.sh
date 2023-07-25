@@ -3,9 +3,7 @@ CREATE DATABASE influx;
 CREATE USER telegraf WITH PASSWORD 'pms18project';
 EOF
 
-
 sudo rm /etc/telegraf/telegraf.conf
-#sudo nano /etc/telegraf/telegraf.conf
 
 sudo dd of=/etc/telegraf/telegraf.conf << CONF
 [global_tags]
