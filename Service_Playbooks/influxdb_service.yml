@@ -1,19 +1,30 @@
 ---
-- name: Install InfluxDB 2.7.0
+- name: Install InfluxDB
   hosts: appserver
-  become: true
+  become: yes
 
   tasks:
     - name: Download InfluxDB package
       get_url:
-        url: https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb
-        dest: /home/chris/influxdb2-2.7.0-amd64.deb
+        url: https://dl.influxdata.com/influxdb/releases/influxdb_1.8.10_amd64.deb
+        dest: /home/chris/influxdb_1.8.10_amd64.deb
 
     - name: Install InfluxDB package
       apt:
-        deb: /home/chris/influxdb2-2.7.0-amd64.deb
+        deb: /home/chris/influxdb_1.8.10_amd64.deb
 
-    - name: Start InfluxDB service
-      service:
+    - name: Remove InfluxDB package file
+      file:
+        path: /home/chris/influxdb_1.8.10_amd64.deb
+        state: absent      
+
+    - name: Enable and start InfluxDB service
+      systemd:
         name: influxdb
         state: started
+        enabled: yes
+
+    - name: Setup Influx Database
+      shell: /home/chris/influx_setup.sh
+      args:
+        executable: /bin/bash
