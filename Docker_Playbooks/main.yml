@@ -10,7 +10,6 @@
       
     - name: Telegraf
       include_tasks: components/telegraf.yml
-      #Won't run...
 
     - name: Grafana Container
       include_tasks: components/grafana_container.yml
