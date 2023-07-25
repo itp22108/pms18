@@ -1,3 +1,5 @@
+#edit /passwds file and upgrade telegraf user
+
 influx <<EOF
 CREATE DATABASE influx;
 CREATE USER telegraf WITH PASSWORD 'pms18project';
