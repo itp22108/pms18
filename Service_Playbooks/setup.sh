@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #edit /passwds file and upgrade telegraf user
 
 influx <<EOF
