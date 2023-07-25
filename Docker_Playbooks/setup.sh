@@ -19,7 +19,7 @@ sudo dd of=/etc/telegraf/telegraf.conf << CONF
   flush_interval = "10s"
   flush_jitter = "0s"
   precision = ""
-  hostname = ""
+  hostname = ""  
   omit_hostname = false
 
 [[outputs.influxdb]]
@@ -33,30 +33,39 @@ sudo dd of=/etc/telegraf/telegraf.conf << CONF
     listen = ":9273"
     metric_version = 2
 
-[[inputs.cpu]]
-  percpu = true
-  totalcpu = true
-  collect_cpu_time = false
+[[inputs.cpu]]  
+  percpu = true  
+  totalcpu = true  
+  collect_cpu_time = false  
   report_active = false
 
 [[inputs.disk]]
   ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
+
 [[inputs.diskio]]
 [[inputs.kernel]]
 [[inputs.mem]]
 [[inputs.processes]]
 [[inputs.swap]]
 [[inputs.system]]
-[[inputs.exec]]
-   commands = [ "top -b -n 1",]
+
+ [[inputs.exec]]
+   commands = ["/top_script.sh"]
    timeout = "5s"
-   name_override = "top_cmd"
-   data_format = "influx"
-[[inputs.exec]]
-    commands = [ "docker stats --no-stream",]
+   name_override = "linux_top"   
+   data_format = "value"   
+   data_type = "string"
+
+ [[inputs.exec]]
+   commands = ["docker stats --no-stream"]
    timeout = "5s"
-   name_override = "docker-stats"
-   data_format = "influx"
+   name_override = "docker_stats"   
+   data_format = "value"   
+   data_type = "string"
+
+
+ [[inputs.net]]
+      interfaces = ["enp0s3"]
 CONF
 
 sudo usermod -aG docker _telegraf
