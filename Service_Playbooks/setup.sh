@@ -57,14 +57,6 @@ sudo dd of=/etc/telegraf/telegraf.conf << CONF
    data_format = "value"   
    data_type = "string"
 
- [[inputs.exec]]
-   commands = ["docker stats --no-stream"]
-   timeout = "5s"
-   name_override = "docker_stats"   
-   data_format = "value"   
-   data_type = "string"
-
-
  [[inputs.net]]
       interfaces = ["enp0s3"]
 CONF
