@@ -20,6 +20,12 @@
         dest: /home/chris/setup.sh
         mode: 0755  # Make the script executable
 
+    - name: Copy top cmd script to target
+      copy:
+        src: /home/chris/PMS18/Service_Playbooks/top_script.sh
+        dest: /top_script.sh
+        mode: 0755  # Make the script executable
+
     - name: Execute setup script on target
       shell: /home/chris/setup.sh
       args:
