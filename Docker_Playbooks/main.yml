@@ -6,7 +6,7 @@
 
   tasks:  
     - name: Install Docker
-      include_tasks: components/docker.yml
+      include_tasks: components/install_docker.yml
       
     - name: Telegraf
       include_tasks: components/telegraf.yml
