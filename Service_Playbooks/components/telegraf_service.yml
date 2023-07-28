@@ -1,0 +1,14 @@
+ - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Telegraf package
+      apt:
+        name: telegraf
+        state: present
+
+    - name: Enable and start Telegraf service
+      service:
+        name: telegraf
+        state: started
+        enabled: yes
