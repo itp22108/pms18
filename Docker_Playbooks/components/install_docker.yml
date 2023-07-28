@@ -1,5 +1,5 @@
  - name: Install required system packages
-      apt:
+   apt:
         pkg:
           - apt-transport-https
           - ca-certificates
@@ -11,31 +11,31 @@
         state: latest
         update_cache: true
 
-    - name: Add Docker GPG apt Key
-      apt_key:
+ - name: Add Docker GPG apt Key
+   apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
 
-    - name: Add Docker Repository
-      apt_repository:
+ - name: Add Docker Repository
+   apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu focal stable
         state: present
 
-    - name: Update apt and install docker-ce
-      apt:
+ - name: Update apt and install docker-ce
+   apt:
         name: docker-ce
         state: latest
         update_cache: true
 
-#    - name: Install Docker Compose
-#      command: >
-#        curl -fsSL https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-#      args:
-#        creates: /usr/local/bin/docker-compose
-#      become: true
+ - name: Install Docker Compose
+   shell: |
+      curl -fsSL https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+   args:
+     creates: /usr/local/bin/docker-compose
+   become: true
 
-#    - name: Set Docker Compose permissions
-#      file:
-#        path: /usr/local/bin/docker-compose
-#        mode: "u+x,g+x"
-#      become: true
+ - name: Set Docker Compose permissions
+   file:
+     path: /usr/local/bin/docker-compose
+     mode: "u+x,g+x"
+   become: true
