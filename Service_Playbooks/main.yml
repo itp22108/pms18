@@ -6,10 +6,10 @@
 
   tasks:
     - name: Install Grafana
-      include_tasks: components/grafana.yml
+      include_tasks: components/grafana_service.yml
 
     - name: Install InfluxDB 1.8
-      include_tasks: components/influx_service.yml
+      include_tasks: components/influxdb_service.yml
 
     - name: Install Telegraf
       include_tasks: components/telegraf_service.yml
