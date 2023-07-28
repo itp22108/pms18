@@ -3,6 +3,7 @@ version: '3.9'
 services:
   owncloud:
     image: owncloud/server:latest
+    container_name: owncloud_srv
     ports:
       - "8080:8080"
     volumes:
@@ -14,6 +15,7 @@ services:
 
   db:
     image: mariadb:latest
+    container_name: owncloud_db
     environment:
       - MYSQL_ROOT_PASSWORD=[PASSWORD]
       - MYSQL_DATABASE=[DB_NAME]
