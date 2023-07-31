@@ -1,12 +1,19 @@
 #!/bin/bash
 
-influx <<EOF
-CREATE DATABASE influx;
-CREATE USER telegraf WITH PASSWORD 'pms18project';
-EOF
+# Function to run commands in the InfluxDB container
+influx_command() {
+  docker exec -i influxdb influx -execute "$1"
+}
+
+# Create the database
+influx_command "CREATE DATABASE influx"
+
+# Create a user and grant permissions
+influx_command "CREATE USER telegraf WITH PASSWORD 'pms18project'"
+# influx_command "GRANT ALL ON influx TO telegraf"
+
 
 sudo rm /etc/telegraf/telegraf.conf
-#sudo nano /etc/telegraf/telegraf.conf
 
 sudo dd of=/etc/telegraf/telegraf.conf << CONF
 [global_tags]
@@ -57,17 +64,14 @@ sudo dd of=/etc/telegraf/telegraf.conf << CONF
    data_type = "string"
 
  [[inputs.exec]]
-   commands = ["docker stats --no-stream"]
+   commands = ["docker stats --nostream"]
    timeout = "5s"
    name_override = "docker_stats"   
    data_format = "value"   
    data_type = "string"
 
-
  [[inputs.net]]
       interfaces = ["enp0s3"]
 CONF
-
-sudo usermod -aG docker _telegraf
 
 sudo systemctl restart telegraf
