@@ -74,4 +74,5 @@ sudo dd of=/etc/telegraf/telegraf.conf << CONF
       interfaces = ["enp0s3"]
 CONF
 
+sudo usermod -aG docker _telegraf
 sudo systemctl restart telegraf
