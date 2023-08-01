@@ -22,10 +22,10 @@
          src: /path/to/my_compose.yml
          dest: target/dest/dir
 
-     - name: Compose OwnCloud on target
-       command: docker-compose -f target/dest/dir/my_compose.yml up -d
+    - name: Compose OwnCloud on target
+      command: docker-compose -f target/dest/dir/my_compose.yml up -d
 
-
+    #Run setup script here
 
 
       
