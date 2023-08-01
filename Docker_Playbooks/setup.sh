@@ -12,7 +12,6 @@ influx_command "CREATE DATABASE influx"
 influx_command "CREATE USER telegraf WITH PASSWORD 'pms18project'"
 # influx_command "GRANT ALL ON influx TO telegraf"
 
-
 sudo rm /etc/telegraf/telegraf.conf
 
 sudo dd of=/etc/telegraf/telegraf.conf << CONF
