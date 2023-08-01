@@ -57,14 +57,14 @@ sudo dd of=/etc/telegraf/telegraf.conf << CONF
 [[inputs.system]]
 
  [[inputs.exec]]
-   commands = ["/top_script.sh"]
+   commands = ["top -b -n 1"]
    timeout = "5s"
    name_override = "linux_top"   
    data_format = "value"   
    data_type = "string"
 
  [[inputs.exec]]
-   commands = ["docker stats --nostream"]
+   commands = ["docker stats --no-stream"]
    timeout = "5s"
    name_override = "docker_stats"   
    data_format = "value"   
