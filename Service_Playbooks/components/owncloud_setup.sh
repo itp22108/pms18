@@ -22,7 +22,7 @@
 
     ### IMPORTANT ! -> https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04 ###
     
-    sudo mysql --user=root -p
+    sudo mysql --user=root -p <<CONF
 
     CREATE DATABASE ownclouddb;
     
@@ -33,8 +33,8 @@
     
     #Enable changes by flushing the privileges:
     FLUSH PRIVILEGES;
-    
-    exit
+    <<CONF
+    #exit
 
 #4) OWNCLOUD PACKAGE DOWNLOAD 
     wget https://download.owncloud.com/server/stable/owncloud-complete-latest.tar.bz2
