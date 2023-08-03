@@ -20,21 +20,17 @@
 
 #3) MYSQL SETUP
 
-    ### IMPORTANT ! -> https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04 ###
+    ### IMPORTANT ! -> https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04 
     
     sudo mysql --user=root -p <<CONF
 
-    CREATE DATABASE ownclouddb;
-    
+    CREATE DATABASE ownclouddb; 
     CREATE USER 'ownclouduser'@'localhost' IDENTIFIED BY 'pms18project';
-    
     #Grant the new user with the necessary privileges:
     GRANT ALL ON ownclouddb.* TO 'ownclouduser'@'localhost' WITH GRANT OPTION;
-    
     #Enable changes by flushing the privileges:
     FLUSH PRIVILEGES;
-    <<CONF
-    #exit
+    CONF
 
 #4) OWNCLOUD PACKAGE DOWNLOAD 
     wget https://download.owncloud.com/server/stable/owncloud-complete-latest.tar.bz2
@@ -42,8 +38,7 @@
     mv owncloud /var/www/
     rm owncloud-complete-latest.tar.bz2
     chown -R www-data: /var/www/owncloud
-    
-    
+        
     nano /etc/apache2/sites-available/owncloud.conf
     
     #Paste bellow text into new file:
