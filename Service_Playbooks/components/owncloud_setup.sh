@@ -22,7 +22,7 @@
 
     ### IMPORTANT ! -> https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04 
     
-    sudo mysql --user=root -p <<CONF
+    sudo mysql --user=root -p << CONF
 
     CREATE DATABASE ownclouddb; 
     CREATE USER 'ownclouduser'@'localhost' IDENTIFIED BY 'pms18project';
