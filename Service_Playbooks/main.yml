@@ -1,6 +1,6 @@
 ---
 - name: Install Services
-  hosts: appserver
+  hosts: services
   gather_facts: false
   become: true
 
