@@ -27,7 +27,7 @@ chown -R www-data: /var/www/owncloud
 
 sudo dd of=/etc/apache2/sites-available/owncloud.conf << CONF
 <VirtualHost *:80>
-    ServerName 10.10.1.88
+    ServerName [LOCAL_VM_IP]
     DocumentRoot /var/www/owncloud
 </VirtualHost>
 CONF
