@@ -30,3 +30,14 @@
       shell: /home/chris/setup.sh
       args:
         executable: /bin/bash
+
+    - name: Copy top Owncloud script to target
+      copy:
+        src: /home/chris/PMS18/Service_Playbooks/components/owncloud_setup.sh
+        dest: /top_script.sh
+        mode: 0755  # Make the script executable
+
+    - name: Execute Owncloud script on target
+      shell: /owncloud_setup.sh
+      args:
+        executable: /bin/bash
