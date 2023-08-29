@@ -9,7 +9,7 @@ services:
     volumes:
       - ./data:/var/www/html
     environment:
-      - OWNCLOUD_TRUSTED_DOMAINS=[TARGET_IP]:8080
+      - OWNCLOUD_TRUSTED_DOMAINS=[TARGET_VM_IP]:8080
       - OWNCLOUD_ADMIN_USERNAME=[USERNAME]
       - OWNCLOUD_ADMIN_PASSWORD=[PASSWORD]
 
