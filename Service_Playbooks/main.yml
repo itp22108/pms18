@@ -5,14 +5,14 @@
   become: true
 
   tasks:
+    - name: Install Telegraf
+      include_tasks: components/telegraf_service.yml
+  
     - name: Install Grafana
       include_tasks: components/grafana_service.yml
 
     - name: Install InfluxDB 1.8
       include_tasks: components/influxdb_service.yml
-
-    - name: Install Telegraf
-      include_tasks: components/telegraf_service.yml
 
     - name: Copy setup script to target
       copy:
