@@ -6,7 +6,7 @@ apt install lamp-server^ -y
 systemctl start apache2 && systemctl enable apache2
 
 #*The above installs PHP 8.1, which is incompatible with Owncloud. Purge PHP and install version 7.4 from bellow*
-apt-get purge 'php*'
+apt-get purge 'php*' -y
 
 #2) PHP INSTALL
 sudo apt -y install software-properties-common
