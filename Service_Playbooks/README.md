@@ -7,4 +7,4 @@
   <li>All bash scripts setup the services with predetermined passwords. It is advised you modify these passwords.</li>
 </ul></p>
 
-<p>Aftet that you can setup a Grafana dashboard according to the project report (unavailable here)</p>
+<p>Aftet that you can setup a Grafana dashboard according to the project report (unavailable here).</p>
