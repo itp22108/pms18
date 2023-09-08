@@ -25,7 +25,15 @@
     - name: Compose OwnCloud on target
       command: docker-compose -f /target/dest/dir/my_compose.yml up -d
 
-    #Run setup script here
+    #
+    - name: Copy setup script to target
+      copy:
+        src: /home/chris/PMS18/Service_Playbooks/setup.sh
+        dest: /home/chris/setup.sh
+        mode: 0755  # Make the script executable
 
+    - name: Execute setup script on target
+      shell: /home/chris/setup.sh
+      args:
 
       
