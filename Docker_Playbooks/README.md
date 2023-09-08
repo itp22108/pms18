@@ -2,6 +2,7 @@
 
 <p>All it needs is to run the main.yml playbook AFTER the following changes are implemented:
 <ul>
+  <li>Mind the "hosts" variable on every playbook (where available).</li>
   <li>Edit the filepaths in all playbooks according to your system's file structure.</li>
   <li>All bash scripts setup the services with predetermined passwords. It is advised you modify these passwords.</li>
   <li>Do as the above step for owncloud-compose.yml</li>
