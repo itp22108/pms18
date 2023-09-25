@@ -12,6 +12,7 @@ services:
       - OWNCLOUD_TRUSTED_DOMAINS=[TARGET_VM_IP]:8080
       - OWNCLOUD_ADMIN_USERNAME=[USERNAME]
       - OWNCLOUD_ADMIN_PASSWORD=[PASSWORD]
+    restart: always
 
   db:
     image: mariadb:latest
@@ -23,3 +24,4 @@ services:
       - MYSQL_PASSWORD=[PASSWORD]
     volumes:
       - ./db_data:/var/lib/mysql
+    restart: always
